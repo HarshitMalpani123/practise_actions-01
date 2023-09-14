@@ -1,0 +1,40 @@
+name: Deploy project Exercise 2 
+on: push
+jobs:
+    lint:
+      runs-on: ububtu-latest
+      steps:
+        - name: get code
+          uses: actions/checkout@v4
+        - name: Install dependecies
+          run: npm ci
+        - name: lint
+          run: npm run lint
+    test:
+      runs-on: ububtu-latest
+      steps:
+        - name: get code
+          uses: actions/checkout@v4
+        - name: Install dependecies
+          run: npm ci
+        - name: test code
+          run: npm run test # test script in mentioned in package.jason file 
+    build:
+      runs-on: ububtu-latest
+      steps:
+        - name: get code
+          uses: actions/checkout@v4
+        - name: Install dependecies
+          run: npm ci
+        - name: build code #name is different from build job
+          run: npm run lbuild
+    deploy:
+      runs-on: ububtu-latest
+      steps:
+        - name: get code
+          uses: actions/checkout@v4
+        - name: Install dependecies
+          run: npm ci
+        - name: Deploy
+          run: echo "Deploying..."  
+

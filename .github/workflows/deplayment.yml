@@ -1,0 +1,19 @@
+name: Deploy project Exercise 1
+on: push
+jobs:
+    deploy:
+      runs-on: ububtu-latest
+      steps:
+        - name: get code
+          uses: actions/checkout@v4
+        - name: Install dependecies
+          run: npm ci
+        - name: lint
+          run: npm run lint
+        - name: test
+          run: npm run test # test script in mentioned in package.jason file 
+        - name: build
+          run: npm run build
+        - name: Deploy
+          run: echo "Deploying..."  
+
